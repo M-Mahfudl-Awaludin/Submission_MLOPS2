@@ -1,5 +1,8 @@
 FROM tensorflow/serving:latest
-COPY ./output/serving_model_dir /models/cc-model
+COPY ./output/serving_model_dir/happy-detection-model /models/cc-model
+# Pastikan struktur direktori model benar
+RUN mv /models/cc-model/1738130904 /models/cc-model/1
+
 ENV MODEL_NAME=cc-model
 ENV PORT=8501
 RUN echo '#!/bin/bash \n\n\
